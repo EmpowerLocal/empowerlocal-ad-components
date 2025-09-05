@@ -18,17 +18,23 @@ import EmpowerlocalAd from './EmpowerlocalAd.astro';
             <h2>Article Title</h2>
             <p>Some article content here...</p>
             
-            <!-- Basic usage with zone ID -->
+            <!-- Basic usage with zone ID only (keyword defaults to "article") -->
             <EmpowerlocalAd zoneId="your-zone-id-here" />
             
             <!-- Usage with custom keyword -->
             <EmpowerlocalAd zoneId="your-zone-id-here" keyword="sports" />
             
-            <!-- Usage with custom CSS class -->
+            <!-- Usage with custom CSS class (keyword still optional) -->
+            <EmpowerlocalAd 
+                zoneId="your-zone-id-here" 
+                className="my-ad-container"
+            />
+            
+            <!-- Usage with both keyword and CSS class -->
             <EmpowerlocalAd 
                 zoneId="your-zone-id-here" 
                 keyword="technology" 
-                className="my-ad-container"
+                className="my-tech-ad"
             />
         </article>
         

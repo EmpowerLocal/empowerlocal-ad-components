@@ -22,7 +22,11 @@ import EmpowerlocalAd from './EmpowerlocalAd';
 function App() {
   return (
     <div>
-      <EmpowerlocalAd zoneId="your-zone-id-here" keyword="article" />
+      {/* Basic usage - keyword is optional, defaults to "article" */}
+      <EmpowerlocalAd zoneId="your-zone-id-here" />
+      
+      {/* With custom keyword */}
+      <EmpowerlocalAd zoneId="your-zone-id-here" keyword="technology" />
     </div>
   );
 }
@@ -35,7 +39,11 @@ function App() {
 import EmpowerlocalAd from './EmpowerlocalAd.astro';
 ---
 
-<EmpowerlocalAd zoneId="your-zone-id-here" keyword="article" />
+<!-- Basic usage - keyword is optional -->
+<EmpowerlocalAd zoneId="your-zone-id-here" />
+
+<!-- With custom keyword -->
+<EmpowerlocalAd zoneId="your-zone-id-here" keyword="sports" />
 ```
 
 ## 📋 Component Props

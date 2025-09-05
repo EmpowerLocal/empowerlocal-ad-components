@@ -20,7 +20,7 @@ const EmpowerlocalAd = ({ zoneId, keyword = "article" }) => {
         );
       }
     });
-  }, []);
+  }, [zoneId, keyword]);
 
   const fetch_empower_ad = async (zoneId, referrerUrl, keyword) => {
     try {
