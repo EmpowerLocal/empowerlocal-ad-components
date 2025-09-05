@@ -1,0 +1,105 @@
+---
+// Astro component for EmpowerLocal ads
+// Server-side props
+export interface Props {
+  zoneId: string;
+  keyword?: string;
+  className?: string;
+}
+
+const { zoneId, keyword = "article", className = "" } = Astro.props;
+---
+
+<div id={`empower-ad-${zoneId}`} class={className} data-zone-id={zoneId} data-keyword={keyword}></div>
+
+<script>
+  // Client-side functionality for the EmpowerLocal ad component
+  class EmpowerLocalAd {
+    constructor(element) {
+      this.element = element;
+      this.zoneId = element.dataset.zoneId;
+      this.keyword = element.dataset.keyword || 'article';
+      this.init();
+    }
+
+    async init() {
+      try {
+        const referrerUrl = encodeURIComponent(window.location.href);
+        const response = await this.fetchEmpowerAd(this.zoneId, referrerUrl, this.keyword);
+        
+        if (response.status === "SUCCESS") {
+          const adContent = `
+            <img src="${response.placements.placement_1.eligible_url}" width="1" height="1" />
+            <img src="${response.placements.placement_1.viewable_url}" width="1" height="1" />
+            ${response.placements.placement_1.body}
+          `;
+          this.renderAd(adContent);
+        } else {
+          console.warn(`Issue loading Empower Local Ad\nReason: ${response.status}`);
+        }
+      } catch (error) {
+        console.error('Error initializing EmpowerLocal ad:', error);
+      }
+    }
+
+    async fetchEmpowerAd(zoneId, referrerUrl, keyword) {
+      try {
+        const placement = await fetch(
+          `https://ads.empowerlocal.co/adserve/;ID=181918;size=0x0;setID=${zoneId};referrer=${referrerUrl};kw=${keyword};type=json;click=CLICK_MACRO_PLACEHOLDER`
+        );
+        return await placement.json();
+      } catch (err) {
+        console.error(err);
+        return {
+          status: "ERROR_IN_FETCH",
+          message: err
+        };
+      }
+    }
+
+    renderAd(adContent) {
+      if (!this.element) return;
+      
+      const range = document.createRange();
+      const fragment = range.createContextualFragment(adContent);
+      this.element.appendChild(fragment);
+    }
+  }
+
+  // Initialize all EmpowerLocal ad components when DOM is ready
+  function initializeEmpowerAds() {
+    const adElements = document.querySelectorAll('[id^="empower-ad-"]');
+    adElements.forEach(element => {
+      if (!element.dataset.initialized) {
+        new EmpowerLocalAd(element);
+        element.dataset.initialized = 'true';
+      }
+    });
+  }
+
+  // Initialize on DOM ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeEmpowerAds);
+  } else {
+    initializeEmpowerAds();
+  }
+
+  // Also initialize on navigation (for SPA-like behavior)
+  document.addEventListener('astro:page-load', initializeEmpowerAds);
+</script>
+
+<style>
+  /* Optional styling for the ad container */
+  [id^="empower-ad-"] {
+    display: block;
+    width: 100%;
+  }
+  
+  /* Hide tracking pixels visually while keeping them functional */
+  [id^="empower-ad-"] img[width="1"][height="1"] {
+    position: absolute;
+    left: -9999px;
+    top: -9999px;
+    visibility: hidden;
+  }
+</style>

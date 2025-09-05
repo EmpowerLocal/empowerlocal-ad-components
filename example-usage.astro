@@ -1,0 +1,42 @@
+---
+// Example usage of the EmpowerLocal Ad component in an Astro page
+import EmpowerlocalAd from './EmpowerlocalAd.astro';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EmpowerLocal Ad Example</title>
+</head>
+<body>
+    <main>
+        <h1>My Astro Page</h1>
+        
+        <article>
+            <h2>Article Title</h2>
+            <p>Some article content here...</p>
+            
+            <!-- Basic usage with zone ID -->
+            <EmpowerlocalAd zoneId="your-zone-id-here" />
+            
+            <!-- Usage with custom keyword -->
+            <EmpowerlocalAd zoneId="your-zone-id-here" keyword="sports" />
+            
+            <!-- Usage with custom CSS class -->
+            <EmpowerlocalAd 
+                zoneId="your-zone-id-here" 
+                keyword="technology" 
+                className="my-ad-container"
+            />
+        </article>
+        
+        <aside>
+            <h3>Sidebar</h3>
+            <!-- Another ad placement -->
+            <EmpowerlocalAd zoneId="sidebar-zone-id" keyword="sidebar" />
+        </aside>
+    </main>
+</body>
+</html>

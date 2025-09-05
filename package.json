@@ -1,0 +1,49 @@
+{
+  "name": "empowerlocal-ad-components",
+  "version": "1.0.0",
+  "description": "EmpowerLocal ad components for React and Astro",
+  "main": "EmpowerlocalAd.js",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "react-dev": "react-scripts start",
+    "react-build": "react-scripts build"
+  },
+  "keywords": [
+    "empowerlocal",
+    "ads",
+    "react",
+    "astro",
+    "advertising",
+    "component"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": "^17.0.0 || ^18.0.0",
+    "react-dom": "^17.0.0 || ^18.0.0",
+    "astro": "^4.0.0"
+  },
+  "devDependencies": {
+    "@astrojs/node": "^8.0.0",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "typescript": "^5.0.0"
+  },
+  "files": [
+    "EmpowerlocalAd.js",
+    "EmpowerlocalAd.astro",
+    "types.d.ts",
+    "README.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "gist:your-gist-id-here"
+  },
+  "bugs": {
+    "url": "https://gist.github.com/your-username/your-gist-id-here"
+  },
+  "homepage": "https://gist.github.com/your-username/your-gist-id-here"
+}
