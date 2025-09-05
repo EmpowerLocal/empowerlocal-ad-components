@@ -1,5 +1,11 @@
 # Usage Examples
 
+## 📋 **Getting Your Zone ID**
+Before using these components, you'll need zone IDs from EmpowerLocal:
+- **Contact**: EmpowerLocal Ad Operations team
+- **Dashboard**: Available in your EmpowerLocal Dashboard
+- **Format**: String identifier (e.g., `"12345"`, `"homepage-banner"`)
+
 ## React Component Example
 
 ```jsx

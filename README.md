@@ -14,6 +14,11 @@ A collection of components for integrating EmpowerLocal ads into React and Astro
 
 ## 🚀 Quick Start
 
+### 📋 **Before You Begin**
+You'll need a `zoneId` from EmpowerLocal:
+- **Contact**: EmpowerLocal Ad Operations team, or
+- **Login to**: EmpowerLocal Dashboard to find your zone IDs
+
 ### React Component
 
 ```jsx
@@ -50,9 +55,17 @@ import EmpowerlocalAd from './EmpowerlocalAd.astro';
 
 | Prop | Type | Required | Default | Description |
 |------|------|----------|---------|-------------|
-| `zoneId` | `string` | ✅ Yes | - | EmpowerLocal zone ID for ad placement |
+| `zoneId` | `string` | ✅ Yes | - | EmpowerLocal zone ID for ad placement (provided by EmpowerLocal Ad Ops or available in EmpowerLocal Dashboard) |
 | `keyword` | `string` | ❌ No | `"article"` | Keyword for ad targeting |
 | `className` | `string` | ❌ No | `""` | Additional CSS class (Astro only) |
+
+### 🆔 **About the `zoneId` Prop**
+
+The `zoneId` is **required** and identifies your specific ad placement:
+- **Provided by**: EmpowerLocal Ad Operations team
+- **Also available in**: EmpowerLocal Dashboard
+- **Format**: String identifier (e.g., `"12345"`, `"homepage-banner"`)
+- **Purpose**: Links your component to the correct ad configuration and targeting
 
 ### 💡 **About the `keyword` Prop**
 
@@ -230,10 +243,10 @@ https://ads.empowerlocal.co/adserve/;ID=181918;size=0x0;setID=${zoneId};referrer
 ### Common Issues
 
 **Ads not loading:**
-- Verify `zoneId` is correct
-- Check network connectivity
-- Review browser console for errors
-- Ensure referrer URL is allowed
+- **Verify `zoneId` is correct** - Contact EmpowerLocal Ad Ops or check your Dashboard
+- **Check network connectivity** to `ads.empowerlocal.co`
+- **Review browser console** for error messages
+- **Ensure referrer URL is allowed** in your EmpowerLocal configuration
 
 **React component not updating:**
 - Check that `zoneId` prop is changing
