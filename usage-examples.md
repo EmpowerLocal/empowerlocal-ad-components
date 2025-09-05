@@ -18,7 +18,7 @@ function App() {
         <article>
           <h2>Blog Post Title</h2>
           
-          {/* Video ad at top of article */}
+          {/* Ad at top of article - with custom keyword */}
           <EmpowerlocalAd 
             zoneId="12345" 
             keyword="technology" 
@@ -26,10 +26,9 @@ function App() {
           
           <p>Your article content goes here...</p>
           
-          {/* Video ad in middle of article */}
+          {/* Ad in middle of article - using default keyword */}
           <EmpowerlocalAd 
             zoneId="67890" 
-            keyword="article" 
           />
           
           <p>More article content...</p>
@@ -39,7 +38,7 @@ function App() {
       <aside>
         <h3>Related Content</h3>
         
-        {/* Sidebar video ad */}
+        {/* Sidebar ad - with custom keyword */}
         <EmpowerlocalAd 
           zoneId="sidebar-123" 
           keyword="related" 
@@ -58,7 +57,7 @@ export default App;
 ---
 // pages/blog/[slug].astro
 import Layout from '../../layouts/Layout.astro';
-import EmpowerlocalVideo from '../../components/EmpowerlocalAd.astro';
+import EmpowerlocalAd from '../../components/EmpowerlocalAd.astro';
 
 const { slug } = Astro.params;
 ---
@@ -67,7 +66,7 @@ const { slug } = Astro.params;
   <article>
     <h1>My Blog Post</h1>
     
-    <!-- Video ad at top -->
+    <!-- Ad at top - with custom keyword -->
     <EmpowerlocalAd 
       zoneId="12345"
       keyword="blog"
@@ -77,10 +76,9 @@ const { slug } = Astro.params;
     <div class="content">
       <p>Your blog post content here...</p>
       
-      <!-- Video ad in middle -->
+      <!-- Ad in middle - using default keyword -->
       <EmpowerlocalAd 
         zoneId="67890"
-        keyword="article"
         className="middle-ad"
       />
       
@@ -172,7 +170,7 @@ function BlogWithAds() {
 ```astro
 ---
 // pages/category/[category].astro
-import EmpowerlocalVideo from '../../components/EmpowerlocalAd.astro';
+import EmpowerlocalAd from '../../components/EmpowerlocalAd.astro';
 
 const { category } = Astro.params;
 

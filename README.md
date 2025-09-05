@@ -54,6 +54,14 @@ import EmpowerlocalAd from './EmpowerlocalAd.astro';
 | `keyword` | `string` | ❌ No | `"article"` | Keyword for ad targeting |
 | `className` | `string` | ❌ No | `""` | Additional CSS class (Astro only) |
 
+### 💡 **About the `keyword` Prop**
+
+The `keyword` prop is **completely optional**:
+- **Default behavior**: If omitted, defaults to `"article"`
+- **Custom targeting**: Specify a keyword to target specific ad content
+- **Common values**: `"technology"`, `"sports"`, `"news"`, `"sidebar"`, etc.
+- **Flexible**: Can be changed dynamically in React (component will re-render)
+
 ## 🔧 Features
 
 ### React Component
