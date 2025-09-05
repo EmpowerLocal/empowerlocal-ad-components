@@ -266,15 +266,18 @@ MIT License - Feel free to use in your projects!
 
 ## 🤝 Contributing
 
-1. Fork this gist
-2. Make your changes
-3. Test thoroughly
-4. Submit a pull request or comment
+1. Fork this repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Make your changes
+4. Test thoroughly
+5. Commit your changes (`git commit -m 'Add some amazing feature'`)
+6. Push to the branch (`git push origin feature/amazing-feature`)
+7. Open a Pull Request
 
 ## 📞 Support
 
 For EmpowerLocal API support, contact their support team.
-For component issues, please comment on this gist.
+For component issues, please open an issue on this repository.
 
 ---
 

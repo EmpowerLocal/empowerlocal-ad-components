@@ -40,10 +40,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "gist:your-gist-id-here"
+    "url": "https://github.com/EmpowerLocal/empowerlocal-ad-components.git"
   },
   "bugs": {
-    "url": "https://gist.github.com/your-username/your-gist-id-here"
+    "url": "https://github.com/EmpowerLocal/empowerlocal-ad-components/issues"
   },
-  "homepage": "https://gist.github.com/your-username/your-gist-id-here"
+  "homepage": "https://github.com/EmpowerLocal/empowerlocal-ad-components#readme"
 }
