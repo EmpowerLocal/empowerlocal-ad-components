@@ -29,8 +29,8 @@ const { zoneId, keyword = "article", className = "" } = Astro.props;
         
         if (response.status === "SUCCESS") {
           const adContent = `
-            <img src="${response.placements.placement_1.eligible_url}" width="1" height="1" />
-            <img src="${response.placements.placement_1.viewable_url}" width="1" height="1" />
+            <img src="${response.placements.placement_1.eligible_url}" width="1" height="1" class="emp-placeholder" />
+            <img src="${response.placements.placement_1.viewable_url}" width="1" height="1" class="emp-placeholder" />
             ${response.placements.placement_1.body}
           `;
           this.renderAd(adContent);
@@ -96,10 +96,14 @@ const { zoneId, keyword = "article", className = "" } = Astro.props;
   }
   
   /* Hide tracking pixels visually while keeping them functional */
-  [id^="empower-ad-"] img[width="1"][height="1"] {
-    position: absolute;
-    left: -9999px;
-    top: -9999px;
-    visibility: hidden;
+  [id^="empower-ad-"] img[width="1"][height="1"],
+  .emp-placeholder {
+    width: 1px !important;
+    height: 1px !important;
+    position: absolute !important;
+    left: -9999px !important;
+    top: -9999px !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
   }
 </style>

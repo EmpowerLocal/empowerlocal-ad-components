@@ -4,14 +4,34 @@ const EmpowerlocalAd = ({ zoneId, keyword = "article" }) => {
   const [empAd, setempAd] = useState("");
   const divRef = useRef(null);
 
+  // Inject CSS for tracking pixels
+  useEffect(() => {
+    if (!document.querySelector('#emp-placeholder-styles')) {
+      const style = document.createElement('style');
+      style.id = 'emp-placeholder-styles';
+      style.textContent = `
+        .emp-placeholder {
+          width: 1px !important;
+          height: 1px !important;
+          position: absolute !important;
+          left: -9999px !important;
+          top: -9999px !important;
+          visibility: hidden !important;
+          opacity: 0 !important;
+        }
+      `;
+      document.head.appendChild(style);
+    }
+  }, []);
+
   useEffect(() => {
     const referrerUrl = encodeURIComponent(window.location.href);
 
     fetch_empower_ad(zoneId, referrerUrl, keyword).then((response) => {
       if (response.status === "SUCCESS") {
         setempAd(`
-          <img src=${response.placements.placement_1.eligible_url} width=1 height=1 />
-          <img src=${response.placements.placement_1.viewable_url} width=1 height=1 />
+          <img src=${response.placements.placement_1.eligible_url} width=1 height=1 class="emp-placeholder" />
+          <img src=${response.placements.placement_1.viewable_url} width=1 height=1 class="emp-placeholder" />
           ${response.placements.placement_1.body}
         `);
       } else {
